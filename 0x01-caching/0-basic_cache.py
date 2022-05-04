@@ -11,7 +11,7 @@ class BasicCache(BaseCaching):
         super(BasicCache, self).__init__()
 
     def put(self, key, item):
-        if key and item != None:
+        if key and item is not None:
             self.cache_data[key] = item
 
     def get(self, key):
