@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# PROJECT TASKS RELATED IGNORES
+*-main.py
