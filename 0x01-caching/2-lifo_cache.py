@@ -19,7 +19,7 @@ class LIFOCache(BaseCaching):
     def put(self, key: Any, item: Any) -> None:
         """Insert cache entry (key: value) to internal dictionary
 
-        If MAX_ITEMS is passed make sure LIFO is enforced
+        If MAX_ITEMS is exceeded, LIFO is enforced
         """
         if key and item is not None:
             try:
@@ -31,14 +31,14 @@ class LIFOCache(BaseCaching):
                 else:
                     raise Exception
             except Exception:
-                first_in_key = list(self.cache_data.items())[-1][0]
+                last_in_key = list(self.cache_data.items())[-1][0]
                 self.cache_data.pop(
-                        first_in_key
+                        last_in_key
                         )
-                print("DISCARD: {}".format(first_in_key))
+                print("DISCARD: {}".format(last_in_key))
                 self.cache_data[key] = item
 
-    def get(self, key) -> Any:
+    def get(self, key: Any) -> Any:
         """Retrieve value using key"""
         return self.cache_data.get(key)
     pass
