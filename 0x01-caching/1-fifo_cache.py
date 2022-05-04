@@ -19,7 +19,7 @@ class FIFOCache(BaseCaching):
     def put(self, key: Any, item: Any) -> None:
         """Insert cache entry (key: value) to internal dictionary
 
-        If MAX_ITEMS is passed make sure FIFO is enforced
+        If MAX_ITEMS is exceeded, FIFO is enforced
         """
         if key and item is not None:
             try:
@@ -37,7 +37,7 @@ class FIFOCache(BaseCaching):
                 print("DISCARD: {}".format(first_in_key))
                 self.cache_data[key] = item
 
-    def get(self, key) -> Any:
+    def get(self, key: Any) -> Any:
         """Retrieve value using key"""
         return self.cache_data.get(key)
     pass
