@@ -130,3 +130,4 @@ dmypy.json
 
 # PROJECT TASKS RELATED IGNORES
 *-main.py
+Popular_Baby_Names.csv
