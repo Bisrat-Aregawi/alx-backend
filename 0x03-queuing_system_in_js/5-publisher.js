@@ -18,7 +18,7 @@ client.on('ready', () => {
 
 /**
  * @function publishMessage
- * @summary DON'T FORGET TO WRITE THIS
+ * @summary Publish to redis channel
  * @param {string} message Display a message
  * @param {number} time Time in milli seconds
  */
