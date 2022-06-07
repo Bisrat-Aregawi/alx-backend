@@ -1,5 +1,5 @@
 /**
- * @module 0-redis_client
+ * @module 1-redis_op
  */
 import { createClient, print } from 'redis';
 
@@ -19,8 +19,8 @@ client.on('ready', () => {
 /**
  * @function setNewSchool
  * @summary Save a key value in a redis instance
- * @params {string} schoolName the key to store in
- * @params {string} value the value to store
+ * @param {string} schoolName the key to store in
+ * @param {string} value the value to store
  */
 function setNewSchool(schoolName, value) {
   client.SET(schoolName, value, print);
@@ -29,7 +29,7 @@ function setNewSchool(schoolName, value) {
 /**
  * @function displaySchoolValue
  * @summary Log value of passed key to the console
- * @params {string} schoolName the key to to get value from
+ * @param {string} schoolName the key to to get value from
  */
 function displaySchoolValue(schoolName) {
   client.GET(schoolName, (err, reply) => {
