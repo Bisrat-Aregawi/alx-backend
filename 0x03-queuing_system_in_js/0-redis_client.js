@@ -11,8 +11,7 @@ client.on('error', (err) => {
   console.log(`Redis client not connected to the server: ${err}`);
 });
 
-// Connect to server with default credentials
-await client.connect();
-
 // Log connection succes to the console
-console.log('Redis client connected to the server');
+client.on('ready', () => {
+  console.log('Redis client connected to the server');
+});
