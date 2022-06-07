@@ -10,8 +10,8 @@ const push_notification_code = kue.createQueue();
 
 // Prepare a job data object
 const jobData = {
-  phoneNumber: '',
-  message: '',
+  phoneNumber: '111111111',
+  message: 'Hello, World!',
 };
 
 // Create a job from jobData
