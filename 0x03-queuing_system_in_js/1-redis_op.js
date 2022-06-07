@@ -1,7 +1,7 @@
 /**
  * @module 0-redis_client
  */
-import { createClient } from 'redis';
+import { createClient, print } from 'redis';
 
 // Instantiate a redis client object
 const client = createClient();
@@ -23,10 +23,7 @@ client.on('ready', () => {
  * @params {string} value the value to store
  */
 function setNewSchool(schoolName, value) {
-  client.SET(schoolName, value, (err, reply) => {
-    if (err) console.error(`Reply: ${err}`);
-    else console.log(`Reply: ${reply}`);
-  });
+  client.SET(schoolName, value, print);
 }
 
 /**

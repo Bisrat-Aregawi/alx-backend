@@ -1,7 +1,7 @@
 /**
  * @module 0-redis_client
  */
-import { createClient } from 'redis';
+import { createClient, print } from 'redis';
 import { promisify } from 'util';
 
 // Instantiate a redis client object
@@ -22,10 +22,7 @@ console.log('Redis client connected to the server');
  * @params {string} value the value to store
  */
 function setNewSchool(schoolName, value) {
-  client.SET(schoolName, value, (err, reply) => {
-    if (err) console.error(`Reply: ${err}`);
-    else console.log(`Reply: ${reply}`);
-  });
+  client.SET(schoolName, value, print);
 }
 
 // Promisify get method of redis client
