@@ -11,11 +11,10 @@ client.on('error', (err) => {
   console.log(`Redis client not connected to the server: ${err}`);
 });
 
-// Connect to server with default credentials
-await client.connect();
-
 // Log connection succes to the console
-console.log('Redis client connected to the server');
+client.on('ready', () => {
+  console.log('Redis client connected to the server');
+});
 
 /**
  * @function setNewSchool
@@ -24,10 +23,10 @@ console.log('Redis client connected to the server');
  * @params {string} value the value to store
  */
 function setNewSchool(schoolName, value) {
-  client.SET(schoolName, value)
-    .then((reply) => {
-      console.log(`Reply: ${reply}`);
-    });
+  client.SET(schoolName, value, (err, reply) => {
+    if (err) console.error(`Reply: ${err}`);
+    else console.log(`Reply: ${reply}`);
+  });
 }
 
 /**
@@ -36,10 +35,10 @@ function setNewSchool(schoolName, value) {
  * @params {string} schoolName the key to to get value from
  */
 function displaySchoolValue(schoolName) {
-  client.GET(schoolName)
-    .then((value) => {
-      console.log(value);
-    });
+  client.GET(schoolName, (err, reply) => {
+    if (err) console.error(err);
+    else console.log(reply);
+  });
 }
 
 displaySchoolValue('Holberton');
