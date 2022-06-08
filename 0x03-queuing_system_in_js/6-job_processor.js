@@ -20,6 +20,7 @@ function sendNotification(phoneNumber, message) {
   );
 }
 
+// Process a single job
 push_notification_code.process('notification', (job, done) => {
   sendNotification(job.data.phoneNumber, job.data.message);
   done();

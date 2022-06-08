@@ -63,21 +63,21 @@ jobs.forEach((job) => {
     .create('notification', job)
     .save((err) => {
       // Log error message if job can't be saved
-      if (err) console.error(`Notification job ${newJob.id} failed: ${err}`);
+      if (err) console.error(`Notification job #${newJob.id} failed: ${err}`);
       // Log message if job save was successful
       else console.log(`Notification job created: ${newJob.id}`);
     })
     // Log message when job has completed
     .on('complete', () => {
-      console.log(`Notificationn job ${newJob.id} completed`);
+      console.log(`Notificationn job #${newJob.id} completed`);
     })
     // Log error message when job failed
     .on('failed', (err) => {
-      console.error(`Notification job ${newJob.id} failed: ${err}`);
+      console.error(`Notification job #${newJob.id} failed: ${err}`);
     })
     // Log the progress of the job
     /* eslint no-unused-vars: ["error", {"args": "none"}] */
     .on('progress', (progress, _) => {
-      console.log(`Notification job ${newJob.id} ${progress}% complete`);
+      console.log(`Notification job #${newJob.id} ${progress}% complete`);
     });
 });
