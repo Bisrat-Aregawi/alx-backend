@@ -10,7 +10,7 @@ const push_notification_code = kue.createQueue();
 
 /**
  * @function sendNotification
- * @summary blah blah
+ * @summary Log information when called with arguments
  * @param {string} phoneNumber
  * @param {string} message
  */
