@@ -6,7 +6,7 @@ import kue from 'kue';
 /* eslint camelcase: 0 */
 
 // Create a kue instance (pun intended)
-const push_notification_code = kue.createQueue();
+const push_notification_code = kue.createQueue({ name: 'push_notification_node' });
 
 // Prepare a job data object
 const jobData = {
