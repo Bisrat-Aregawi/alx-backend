@@ -18,8 +18,8 @@ client.on('ready', () => {
 
 // Listen on a message event of subscription
 client.on('message', (_, msg) => {
+  console.log(msg);
   if (msg === 'KILL_SERVER') client.QUIT();
-  else console.log(msg);
 });
 
 // Subscribe to specified channel (pub/sub in effect)
